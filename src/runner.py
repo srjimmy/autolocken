@@ -57,5 +57,11 @@ class App:
 
         report_url: str = self.base_url + "AccessEvent-getExcelFile.go"
         report_Manager = ReportManager(session=login_session, url=report_url)
-        filename: str = f"{self.basename} {self.start_date} a {self.end_date}.xlsx"
+
+        filename: str = (
+            f"{self.basename} {self.start_date}.xlsx"
+            if self.start_date == self.end_date
+            else f"{self.basename} {self.start_date} a {self.end_date}.xlsx"
+        )
+
         report_Manager.download(filename=filename)

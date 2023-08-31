@@ -7,8 +7,13 @@ account: str = config.account
 username: str = config.username
 password: str = config.password
 users: list[str] = config.users
-start_date, end_date = get_previous_weekdays()
 basename: str = config.basename
+
+try:
+    start_date = config.start_date
+    end_date = config.end_date
+except AttributeError:
+    start_date, end_date = get_previous_weekdays()
 
 app = App(
     base_url=base_url,
