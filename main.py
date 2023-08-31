@@ -1,17 +1,14 @@
-import json
+import config
 from src.runner import App
 from src.utils.date import get_previous_weekdays
 
-with open(file="config.json", mode="r") as config_file:
-    config = json.load(fp=config_file)
-
-base_url: str = config.get("base_url")
-account: str = config.get("account")
-username: str = config.get("username")
-password: str = config.get("password")
-users: list[str] = config.get("users")
+base_url: str = config.base_url
+account: str = config.account
+username: str = config.username
+password: str = config.password
+users: list[str] = config.users
 start_date, end_date = get_previous_weekdays()
-basename: str = config.get("basename")
+basename: str = config.basename
 
 app = App(
     base_url=base_url,

@@ -17,21 +17,19 @@ dadas sin necesidad de utilizar la aplicación web
 git clone https://github.com/srjimmy/autolocken.git
 ~~~
 
-2. Configura el archivo `config.json` en la raíz del proyecto:
+2. Configura el archivo `config.py` en la raíz del proyecto:
 
 ~~~sh
-touch config.json
+touch config.py
 ~~~
 
-~~~json
-{
-  "base_url": "https://<organization>.lockensmartaccess.com/",
-  "account": "<account>",
-  "username": "<username>",
-  "password": "<password>",
-  "users": ["<id>", "<id>", "<id>"],
-  "basename": "Access report"
-}
+~~~python
+base_url: str = "https://<organization>.lockensmartaccess.com/"
+account: str = "<account>"
+username: str = "<username>"
+password: str = "<password>"
+users: list[str] = ["<id>" "<id>" "<id>"]
+basename: str = "Access report"
 ~~~
 
 3. Ejecuta el archivo `main.py`:
