@@ -1,4 +1,5 @@
 import requests
+import pandas as pd
 
 
 class ReportManager:
@@ -28,10 +29,7 @@ class ReportManager:
             "filter_criteria": "",
         }
 
-        response: requests.Response = self.session.post(
-            url=self.url, data=payload, stream=True
-        )
+        response: requests.Response = self.session.post(url=self.url, data=payload)
 
-        with open(file=filename, mode="wb") as file:
-            for chunk in response.iter_content(chunk_size=1024):
-                file.write(chunk)
+        table_data: pd.DataFrame = pd.read_html(io=response.content)[0]
+        table_data.to_excel(excel_writer=filename, index=False)
