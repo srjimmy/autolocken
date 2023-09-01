@@ -30,9 +30,9 @@ username: str = "<username>"
 password: str = "<password>"
 users: list[str] = ["<id>" "<id>" "<id>"]
 basename: str = "Access report"
-# Optional, default previous week's Monday
+# Leave the string empty for default value, previous week's Monday
 start_date: str = "YYYY-MM-DD"
-# Optional, default previous week's Friday
+# Leave the string empty for default value, previous week's Friday
 end_date: str = "YYYY-MM-DD"
 ~~~
 
